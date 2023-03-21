@@ -376,24 +376,26 @@ try:
             # we can give the chat prompt additional information here
             # like the time
             
-            finalPrompt = prompt
+            finalPrompt = ""
             
             # alternative prepend the current time
             timeKeywords = ['hour', 'time', 'clock', 'watch']
             if any([x in prompt for x in timeKeywords]):
                 #print("The user may ask about time")
-                finalPrompt = appendCurrentTime() + prompt
+                finalPrompt += appendCurrentTime()
            
             # alternative prepend the current date
             dateKeywords = ['date','calendar','month','year','day']
             if any([x in prompt for x in dateKeywords]):
                 #print("The user may ask about time")
-                finalPrompt = appendCurrentDate() + prompt
+                finalPrompt += appendCurrentDate()
                 
             # alternative prepend information about the weather
             weatherKeywords = ['weather', 'temperature', 'wind', 'rain', 'snow']
             if any([x in prompt for x in weatherKeywords]):
-                finalPrompt = appendCurrentWeather() + prompt
+                finalPrompt += appendCurrentWeather()
+                
+            finalPrompt += prompt
       
             #newsKeywords = ['news', 'headline', 'world', 'latest', 'happening']
             #if any([x in prompt for x in newsKeywords]):
