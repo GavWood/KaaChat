@@ -198,13 +198,13 @@ def getTranscription():
 
 def appendCurrentTime():
     # append the current time - so the AI has current time    
-    current_time = datetime.datetime.now().strftime("%I:%M %p")
-    return "\nThe current time is " + current_time + ".\n"
+    current_time = datetime.datetime.now()
+    return f"\nThe current date is {current_time:%#I:%M%p}.\n"
+    
 
 def appendCurrentDate():
     # append the current date - so the AI has current time    
-    current_date = datetime.datetime.now().strftime("%d-%m-%Y")
-    return "\nThe current date is " + current_date + ".\n"
+    return f"\nThe current date is {date.today():%d-%m-%Y}.\n"
 
 def calculateTokens(messages):
     global totalCost
@@ -308,7 +308,7 @@ prompt += appendNews()
 
 # initialize the conversation
 messages = [
-    {"role": "system", "content": prompt},
+    {"role": "user", "content": prompt},
 ]
 #print(messages)
 
