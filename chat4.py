@@ -142,11 +142,11 @@ def sampleWavToFile():
 
     rangeRms = maxRms - minRms
     
-    if( rangeRms > 1000 ):
-        #print("Large range: likely speech: " + str(rangeRms) )
+    if( rangeRms > 100 ):
+        print("Large range: likely speech: " + str(rangeRms) )
         return True
     else:
-        #print("Small range: likely silence: " + str(rangeRms) )
+        print("Small range: likely silence: " + str(rangeRms) )
         return False
     
 def convertToMp3():       
@@ -238,7 +238,11 @@ def appendCurrentWeather():
 def appendNews():
     # Enter your API key here
     api_key =  os.environ["NEWS_KEY"]
-     
+    
+    # only call the API if we have a key
+    if len(api_key) == 0:
+        return ""
+        
     # base_url variable to store url
     base_url = "https://newsapi.org/v2/top-headlines?category=general&country=gb&apiKey="+api_key
         
