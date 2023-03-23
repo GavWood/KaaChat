@@ -142,7 +142,7 @@ def sampleWavToFile():
 
     rangeRms = maxRms - minRms
     
-    if( rangeRms > 1000 ):
+    if( rangeRms > 100 ):
         #print("Large range: likely speech: " + str(rangeRms) )
         return True
     else:
@@ -213,7 +213,7 @@ def calculateTokens(messages):
     # gpt-3.5-turbo	$0.002 / 1K tokens
     cost = (tokens / 1000) * 0.002
     totalCost += cost
-    print( f"Last message cost ${cost:.6f}\nTotal cost is ${totalCost:.2f}" )
+    print( f"Estimated message cost ${cost:.6f}\nTotal cost is ${totalCost:.2f}" )
 
 def appendCurrentWeather():
     # Enter your API key here
