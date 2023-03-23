@@ -6,6 +6,7 @@ import io
 import pyttsx3
 import pyaudio
 import datetime
+from datetime import date
 import audioop
 import wave
 import random
