@@ -238,7 +238,11 @@ def appendCurrentWeather():
 def appendNews():
     # Enter your API key here
     api_key =  os.environ["NEWS_KEY"]
-     
+    
+    # only call the API if we have a key
+    if len(api_key) == 0:
+        return ""
+        
     # base_url variable to store url
     base_url = "https://newsapi.org/v2/top-headlines?category=general&country=gb&apiKey="+api_key
         
