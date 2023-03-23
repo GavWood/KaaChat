@@ -7,11 +7,11 @@ NICESITIES
 
 Async wakewords etc.
 
-TODO 
-Lets automate the Python installation of project so John doesn't need the packages.
+NOTE
 
+Current ChatGPT seems great value for a single user - but please don't rely on the token count being accurate / uptodate for enterprise.
 
-## Install instructions
+## Install instructions for Poetry
 
 1. Install Python3
 	* assuming you know have to do this yourself
@@ -36,3 +36,6 @@ Lets automate the Python installation of project so John doesn't need the packag
 1. Install dependencies
 	* https://python-poetry.org/docs/basic-usage/#installing-dependencies
 	* `poetry install`
+	
+## Install instructions for Anacodna PIP
+todo
