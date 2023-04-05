@@ -57,12 +57,26 @@ def detectWakeWord():
         recorder.delete()
 
 def listModelNames():
+    myModelList = []
+    
     # List the available models
     models = openai.Model.list()
-    chat_model_ids = [(model.id, model.created) for model in models["data"] if model.id.startswith("gpt")]
+    #chat_model_ids = [(model.id, model.created) for model in models["data"] if model.id.startswith("gpt")]
+    chat_model_ids = [(model.id, model.created) for model in models["data"] ]
     for model_id, created in chat_model_ids:
         created_at = datetime.datetime.fromtimestamp(created)
-        print(model_id, created_at)
+        
+        # add the model to our own list
+        myDictObj = {"timestamp": created_at, "created":created, "model_id" : model_id}
+        myModelList.append(myDictObj)
+        
+    # sort the list
+    sorted_list = sorted(myModelList, key=lambda k: k['created'],  reverse=False)
+
+    # print the list
+    for model in sorted_list[-5:]:
+        print("Timestamp:", model["timestamp"])
+        print("Model ID:", model["model_id"])
             
 # sampleWavToFile
 # Records from the microphone and saves to file. I wanted more control over the thresholds
